@@ -28,11 +28,11 @@ gulp.task('build', function() {
   return gulp.src('package/**')
              .pipe(electron(
               {
-                version: '0.30.3',
+                version: '0.33.7',
                 platform: process.platform,
                 arch: process.arch
               }))
-            .pipe(electron.zfsdest('dist/es6-ng-electron.zip'));
+             .pipe(electron.zfsdest('dist/es6-ng-electron.zip'));
 });
 
 gulp.task('default', function(){
