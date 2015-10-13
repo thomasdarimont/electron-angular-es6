@@ -24,12 +24,15 @@ gulp.task('copy:app', ['clean'], function(){
 
 
 gulp.task('build', function() {
+
   return gulp.src('package/**')
-        .pipe(electron({
-          version: '0.30.3',
-          // build for OSX
-          platform: 'darwin' }))
-        .pipe(electron.zfsdest('dist/es6-ng-electron.zip'));
+             .pipe(electron(
+              {
+                version: '0.30.3',
+                platform: process.platform,
+                arch: process.arch
+              }))
+            .pipe(electron.zfsdest('dist/es6-ng-electron.zip'));
 });
 
 gulp.task('default', function(){
